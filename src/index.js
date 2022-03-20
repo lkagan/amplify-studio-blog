@@ -4,9 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import config from './aws-exports';
+import {Amplify} from "aws-amplify";
+
+import {AmplifyProvider } from "@aws-amplify/ui-react";
+import '@aws-amplify/ui-react/styles.css'
+
+Amplify.configure(config);
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <AmplifyProvider>
+          <App/>
+      </AmplifyProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
